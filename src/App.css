@@ -1,0 +1,81 @@
+.App {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.App-header {
+  background-color: #1f2937;
+  padding: 40px;
+  color: white;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  color: #60a5fa;
+}
+
+.input-label {
+  font-size: 18px;
+  margin-right: 10px;
+  color: #d1d5db;
+}
+
+.input-field {
+  font-size: 16px;
+  padding: 8px 12px;
+  border: 2px solid #60a5fa;
+  border-radius: 5px;
+  width: 80%;
+  max-width: 400px;
+  margin-bottom: 20px;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+.label-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.word-label {
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* History Section */
+.history-section {
+  margin-top: 30px;
+  text-align: left;
+}
+
+.history-table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+.history-table td {
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  border: 1px solid #ddd;
+  color: white;
+  border-radius: 4px;
+}
+
+.history-table td:first-child {
+  font-weight: bold;
+  padding-right: 10px;
+}
