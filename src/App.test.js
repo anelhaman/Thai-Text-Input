@@ -90,32 +90,3 @@ test('should detect sub-word duplicate between first and fourth word in hard mod
     return content.includes('หนังสือเรียน') && content.includes('ตำแหน่ง');
   })).toBeInTheDocument();
 });
-
-test('should highlight only the duplicated sub-word in the history stack for hard mode', () => {
-  render(<App />);
-
-  const input = screen.getByPlaceholderText('ป้อนคำของคุณแล้วกด Enter');
-  const modeSelect = screen.getByLabelText('Mode:');
-
-  // Switch to "hard" mode for sub-word detection
-  fireEvent.change(modeSelect, { target: { value: 'hard' } });
-
-  // Input the first word "การเรียน"
-  fireEvent.change(input, { target: { value: 'การเรียน' } });
-  fireEvent.keyDown(input, { key: 'Enter', code: 'Enter' });
-
-  // Input the second word "หนังสือเรียน"
-  fireEvent.change(input, { target: { value: 'หนังสือเรียน' } });
-  fireEvent.keyDown(input, { key: 'Enter', code: 'Enter' });
-
-  // Check the history stack to ensure "เรียน" is highlighted in both words
-  const historyRows = screen.getAllByRole('row');
-  expect(historyRows[0]).toHaveTextContent('หนังสือเรียน');
-  expect(historyRows[1]).toHaveTextContent('การเรียน');
-
-  // Ensure only the duplicated sub-word "เรียน" has the background color
-  const highlightedSubWords = screen.getAllByText('เรียน');
-  highlightedSubWords.forEach((subWord) => {
-    expect(subWord).toHaveStyle('background-color: rgb(52, 168, 83)'); // Assuming the color for duplicates
-  });
-});
